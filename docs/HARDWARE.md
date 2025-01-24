@@ -10,7 +10,7 @@
 
 ### $127.99
 
-![Raspberry Pi Zero 2 W](images/raspberrypi.png)
+![Raspberry Pi Zero 2 W](images/raspberrypi.jpg)
 
 ## USB to RS-232 3-pin Phoenix Serial Cable
 
