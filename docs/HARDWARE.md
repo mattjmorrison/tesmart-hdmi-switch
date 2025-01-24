@@ -1,17 +1,25 @@
-- TESmart 8×1 HDMI Switch
-![alt text](images/switch.png)
+# Hardware 
 
-- Raspberry Pi Zero 2 W
-![alt text](images/raspberrypi.png)
+## TESmart 8×1 HDMI Switch
 
-- USB to RS-232 3-pin Phoenix Serial Cable
-![alt text](images/cable.png)
+![TESmart 8x1 HDMI Switch](images/switch.png)
 
-- USB 2.0 Micro USB Male to Type A Female adapter
-![alt text](images/microusb.png)
+## Raspberry Pi Zero 2 W
 
-- Micro SD Card
-![MicroSD Card](images/microsd.png)
+![Raspberry Pi Zero 2 W](images/raspberrypi.png)
 
-- HDMI Cables
-![alt text](images/hdmi.png)
+## USB to RS-232 3-pin Phoenix Serial Cable
+
+![USB to RS-232 3-pin Phoenix Serial Cablt](images/cable.png)
+
+## USB 2.0 Micro USB Male to Type A Female adapter
+
+![USB 2.0 Micro USB Male to Type A Female adaptet](images/microusb.png)
+
+## Micro SD Card
+
+![Micro SD Card](images/microsd.png)
+
+## HDMI Cables
+
+![HDMI Cablet](images/hdmi.png)
