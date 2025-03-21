@@ -1,7 +1,8 @@
 import json
-from wsgiref.simple_server import make_server
-import serial
 import time
+from wsgiref.simple_server import make_server
+from pathlib import Path, PurePath
+import serial
 
 
 device = '/dev/ttyUSB0'
@@ -9,8 +10,8 @@ baud = 9600
 
 
 ports = {
-	1: 'google-tv',
-	5: 'apple-tv',
+	8: 'google-tv',
+	6: 'apple-tv',
 	4: 'ps4',
 	2: 'ps3',
 	3: 'switch',
@@ -18,8 +19,8 @@ ports = {
 
 
 hex_map = {
-	'google-tv': b'\x01',
-	'apple-tv': b'\x05',
+	'google-tv': b'\x08',
+	'apple-tv': b'\x06',
 	'ps4': b'\x04',
 	'ps3': b'\x02',
 	'switch': b'\x03',
@@ -56,7 +57,7 @@ def static(start_response, path):
 	status = '200 OK'
 	headers = [('Content-type', 'image/png; charset=utf-8')]
 	start_response(status, headers)
-	with open(f'/home/mattjmorrison/App{path}', 'rb') as f:
+	with open(Path(__file__).parent / path[1:], 'rb') as f:
 		return [f.read()]
 
 
