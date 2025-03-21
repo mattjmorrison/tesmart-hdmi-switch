@@ -16,7 +16,7 @@
     sudo systemctl daemon-reload
     sudo systemctl enable hdmi
     sudo systemctl start hdmi
-
+```
 
 ## Troubleshooting
 
