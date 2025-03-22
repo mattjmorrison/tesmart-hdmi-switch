@@ -18,6 +18,13 @@
     sudo systemctl start hdmi
 ```
 
+## Deploying Changes to raspberry pi
+
+```
+    scp -r App/app.py user@pi:App
+    sudo systemctl restart hdmi
+```
+
 ## Troubleshooting
 
 ```

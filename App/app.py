@@ -13,8 +13,8 @@ ports = {
 	8: 'google-tv',
 	6: 'apple-tv',
 	4: 'ps4',
-	2: 'ps3',
-	3: 'switch',
+	3: 'ps3',
+	1: 'switch',
 }
 
 
@@ -22,8 +22,8 @@ hex_map = {
 	'google-tv': b'\x08',
 	'apple-tv': b'\x06',
 	'ps4': b'\x04',
-	'ps3': b'\x02',
-	'switch': b'\x03',
+	'ps3': b'\x03',
+	'switch': b'\x01',
 }
 
 
