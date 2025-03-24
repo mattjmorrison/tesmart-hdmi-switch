@@ -1,15 +1,15 @@
 import json
 import time
 from wsgiref.simple_server import make_server
-from pathlib import Path, PurePath
+from pathlib import Path
 import serial
 
 
-device = '/dev/ttyUSB0'
-baud = 9600
+DEVICE = '/dev/ttyUSB0'
+BAUD = 9600
 
 
-ports = {
+PORTS = {
 	8: 'google-tv',
 	6: 'apple-tv',
 	4: 'ps4',
@@ -18,7 +18,7 @@ ports = {
 }
 
 
-hex_map = {
+HEX_MAP = {
 	'google-tv': b'\x08',
 	'apple-tv': b'\x06',
 	'ps4': b'\x04',
@@ -28,7 +28,7 @@ hex_map = {
 
 
 def get_current_input():
-	s = serial.Serial(device, baud, timeout=1)
+	s = serial.Serial(DEVICE, BAUD, timeout=1)
 	s.write(b'\xAA\xBB\x03\x10\x00\xEE')
 	time.sleep(0.5)
 	response = s.read(size=8)
@@ -36,8 +36,8 @@ def get_current_input():
 
 
 def update_current_input(new):
-	s = serial.Serial(device, baud, timeout=1)
-	s.write(b'\xAA\xBB\x03\x01' + hex_map[new] + b'\xEE')
+	s = serial.Serial(DEVICE, BAUD, timeout=1)
+	s.write(b'\xAA\xBB\x03\x01' + HEX_MAP[new] + b'\xEE')
 	time.sleep(0.5)
 	response = s.read(size=8)
 	return int(response[4]) + 1
@@ -45,8 +45,8 @@ def update_current_input(new):
 
 def page(start_response):
 	current = get_current_input()
-	selected = ports.get(current)
-	options = {name: 'current' if name == selected else '' for name in ports.values()}
+	selected = PORTS.get(current)
+	options = {name: 'current' if name == selected else '' for name in PORTS.values()}
 	status = '200 OK'
 	headers = [('Content-type', 'text/html; charset=utf-8')]
 	start_response(status, headers)
@@ -132,7 +132,7 @@ document.querySelector(".grid").addEventListener("click", (event) => {
 	fetch("/update", {
 		method: 'POST',
 		body: JSON.stringify({selected: event.target.id})
-	})
+	});
 	document.querySelectorAll('.component').forEach(component => {
 		if(component.id == event.target.id) {
 			component.classList.add('current');
@@ -140,7 +140,7 @@ document.querySelector(".grid").addEventListener("click", (event) => {
 		else {
 			component.classList.remove('current');
 		}
-	})
+	});
 });
 """
 

@@ -334,7 +334,7 @@ Pyowa Organizer<br>
 <div class="slide-body">
     <h1 class="slide-title">How do I do it?</h1>
 
-```
+```python
 s = serial.Serial('device?', 'baud?', timeout=1)
 s.write(b'...?')
 response = s.read(size='size?')
