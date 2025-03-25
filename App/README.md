@@ -28,5 +28,6 @@
 ## Troubleshooting
 
 ```
-    sudo systemctl
+    sudo systemctl status hdmi
+    sudo journalctl -u hdmi
 ```
