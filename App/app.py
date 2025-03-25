@@ -47,16 +47,12 @@ def page(start_response):
 	current = get_current_input()
 	selected = PORTS.get(current)
 	options = {name: 'current' if name == selected else '' for name in PORTS.values()}
-	status = '200 OK'
-	headers = [('Content-type', 'text/html; charset=utf-8')]
-	start_response(status, headers)
+	start_response('200 OK', [('Content-type', 'text/html; charset=utf-8')])
 	return [HTML.format(CSS=CSS, JAVASCRIPT=JAVASCRIPT, **options).encode("utf-8")]
 
 
 def static(start_response, path):
-	status = '200 OK'
-	headers = [('Content-type', 'image/png; charset=utf-8')]
-	start_response(status, headers)
+	start_response('200 OK', [('Content-type', 'image/png; charset=utf-8')])
 	with open(Path(__file__).parent / path[1:], 'rb') as f:
 		return [f.read()]
 
@@ -64,9 +60,7 @@ def static(start_response, path):
 def update(start_response, data):
 	selected = json.loads(data)['selected']
 	update_current_input(selected)
-	status = '204 No Content'
-	headers = [('Content-type', 'text/plain; charset=utf-8')]
-	start_response(status, headers)
+	start_response('204 No Content', [('Content-type', 'text/plain; charset=utf-8')])
 	return [''.encode("utf-8")]
 	
 
@@ -81,9 +75,7 @@ def app(environ, start_response):
 	if path == '/update' and method == 'POST':
 		return update(start_response, environ['wsgi.input'].read(int(environ['CONTENT_LENGTH'])))
 
-	status = '404 Not Found'
-	headers = [('Content-type', 'text/plain; charset=utf-8')]
-	start_response(status, headers)
+	start_response('404 Not Found', [('Content-type', 'text/plain; charset=utf-8')])
 	return ['404'.encode("utf-8")]
 
 
