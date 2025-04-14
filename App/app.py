@@ -10,20 +10,20 @@ BAUD = 9600
 
 
 PORTS = {
-	8: 'google-tv',
-	6: 'apple-tv',
-	4: 'ps4',
+	1: 'google-tv',
+	2: 'apple-tv',
 	3: 'ps3',
-	1: 'switch',
+	4: 'ps4',
+	5: 'switch',
 }
 
 
 HEX_MAP = {
-	'google-tv': b'\x08',
-	'apple-tv': b'\x06',
-	'ps4': b'\x04',
+	'google-tv': b'\x01',
+	'apple-tv': b'\x02',
 	'ps3': b'\x03',
-	'switch': b'\x01',
+	'ps4': b'\x04',
+	'switch': b'\x05',
 }
 
 
@@ -148,8 +148,8 @@ HTML = """
         <div class="grid">
             <button class="component {google-tv}" id="google-tv"></button>
             <button class="component {apple-tv}" id="apple-tv"></button>
-            <button class="component {ps4}" id="ps4"></button>
             <button class="component {ps3}" id="ps3"></button>
+            <button class="component {ps4}" id="ps4"></button>
             <button class="component {switch}" id="switch"></button>
         </div>
     </body>
